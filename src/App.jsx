@@ -1,5 +1,6 @@
-
-import PokemonCard from './components/PokemonCard'
+import PokemonCard from "./components/PokemonCard"
+import DisplayButton from "./components/NavBar"
+import { useState } from "react";
 
 
 const pokemonList = [
