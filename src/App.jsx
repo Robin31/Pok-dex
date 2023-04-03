@@ -2,58 +2,51 @@ import PokemonCard from "./components/PokemonCard"
 import DisplayButton from "./components/NavBar"
 import { useState } from "react";
 
-
-const pokemonList = [
-  {
-      name: "bulbasaur",
-      imgSrc:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    },
+function App() {
+  const pokemonList = [
     {
-      name: "charmander",
-      imgSrc:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
-    },
-    {
-      name: "squirtle",
-      imgSrc:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
-    },
-    {
-      name: "pikachu",
-      imgSrc:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
-    },
-    {
-      name: "mew",
-    },
-];
+        name: "bulbasaur",
+        imgSrc:
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+      },
+      {
+        name: "charmander",
+        imgSrc:
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+      },
+      {
+        name: "squirtle",
+        imgSrc:
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+      },
+      {
+        name: "pikachu",
+        imgSrc:
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+      },
+      {
+        name: "mew",
+      },
+  ];
 
 
-    const [pokemonIndex, setpokemonIndex] = useState(0);
+  const [indexPokemon,setIndexPokemon]= useState(0);
 
-    const handleNext = () => {
-      setpokemonIndex(pokemonIndex + 1)
-    }
+  // function handleClickNext() {
+  //   setIndexPokemon(indexPokemon + 1)
+  // }
+  // function handleClickBack() {
+  //   setIndexPokemon(indexPokemon - 1)
+  // }
 
-    const handleBack = () => {
-      setpokemonIndex(pokemonIndex - 1)
-    }
 
   return (
     <div>
-      <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
-      
-      {pokemonIndex > 0 && (
-        <button onClick={handleBack}>prédécent</button>
-      )}
-      {pokemonIndex < pokemonList.length - 1 && (
-        <button onClick={handleNext}>suivant</button>
-      )}
+      <NavBar  indexPokemon={indexPokemon} setIndexPokemon={setIndexPokemon} pokemonList={pokemonList}/>
+      <PokemonCard name={pokemonList[indexPokemon].name} img= {pokemonList[indexPokemon].imgSrc} />
     </div>
-  
   )
+  }
 
-
-export default App
+export default App;
 
