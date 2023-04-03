@@ -2,7 +2,7 @@ import PokemonCard from "./components/PokemonCard"
 import DisplayButton from "./components/NavBar"
 import { useState } from "react";
 
-function App() {
+
   const pokemonList = [
     {
         name: "bulbasaur",
@@ -29,24 +29,32 @@ function App() {
       },
   ];
 
-
-  const [indexPokemon,setIndexPokemon]= useState(0);
-
-  // function handleClickNext() {
-  //   setIndexPokemon(indexPokemon + 1)
-  // }
-  // function handleClickBack() {
-  //   setIndexPokemon(indexPokemon - 1)
-  // }
-
-
-  return (
-    <div>
-      <NavBar  indexPokemon={indexPokemon} setIndexPokemon={setIndexPokemon} pokemonList={pokemonList}/>
-      <PokemonCard name={pokemonList[indexPokemon].name} img= {pokemonList[indexPokemon].imgSrc} />
-    </div>
-  )
+  function App() {
+    useEffect(
+      () => {
+        alert('Hello pokemon trainer ! ٩(◕‿◕｡)۶');
+      },
+      []
+    );
+  
+    const [pokemonIndex, setPokemonIndex] = useState(0);
+  
+    pokemonList[pokemonIndex].name === 'pikachu' ? alert('Pika pikachuuu !!') : "";
+  
+    return (<div className="pokemonBox">
+      <div className="pokeball">
+        <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
+      </div>
+      <div className="navbar">
+        {pokemonList.map((pokemonIndex, index) =>
+        <NavBar key={pokemonIndex.name} setPokemonIndex={setPokemonIndex} pokemonIndex={pokemonIndex} index={index}/>
+        )}
+      </div>
+      </div>
+    )
   }
-
-export default App;
+  
+  
+  
+  export default App;
 
