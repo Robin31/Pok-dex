@@ -1,23 +1,28 @@
-function DisplayButton(props) {
-  const {pokemonIndex, setpokemonIndex, pokemonList} = props
-  
-  const handleNext = () => {
-      setpokemonIndex(pokemonIndex + 1)
-  }
-  
-  const handleBack = () => {
-      setpokemonIndex(pokemonIndex - 1)
-  }
-  
-      return <div>
-          {pokemonIndex > 0 && (
-          <button onClick={handleBack}>prédécent</button>
-          )}
-          {pokemonIndex < pokemonList.length - 1 && (
-          <button onClick={handleNext}>suivant</button>
-          )}
-          </div>
-  }
-  
-  export default DisplayButton;
+const NavBar = ({pokemonIndex, setPokemonIndex, index}) => {
+
+    const handleClick = () => {
+        setPokemonIndex(pokemonIndex = index);
+    }
+
+    // const handleClickPrevious = () => {
+    //     setPokemonIndex(pokemonIndex -1);
+    // }
+    // const handleClickNext = () => {
+    //     setPokemonIndex(pokemonIndex + 1);
+    // }
+    
+    return (
+        <div>
+            <button className="button" onClick={handleClick} key={pokemonIndex.name}>{pokemonIndex.name}</button>
+        </div>
+
+
+        // <div>
+        //     {pokemonIndex > 0 ? <button className="button" onClick={handleClickPrevious}>Previous</button> : <button>No more item</button>}
+        //     {pokemonIndex < pokemonList.length -1 ? <button className="button" onClick={handleClickNext}>Next</button> : <button>No more item</button>}
+        // </div>
+    );
+};
+
+export default NavBar;
   
