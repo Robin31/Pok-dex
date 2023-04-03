@@ -40,6 +40,23 @@ function App() {
   // }
 
 
+
+function App() {
+  const [pokemonIndex, setPokemonIndex] = useState(0);
+
+  return (<div className="pokemonBox">
+    <div className="pokeball">
+      <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
+    </div>
+    <div className="navbar">
+      {pokemonList.map((pokemonIndex, index) =>
+      <NavBar setPokemonIndex={setPokemonIndex} pokemonIndex={pokemonIndex} index={index}/>
+      )}
+    </div>
+    </div>
+  )
+}
+=======
   return (
     <div>
       <NavBar  indexPokemon={indexPokemon} setIndexPokemon={setIndexPokemon} pokemonList={pokemonList}/>
@@ -47,6 +64,7 @@ function App() {
     </div>
   )
   }
+
 
 export default App;
 
